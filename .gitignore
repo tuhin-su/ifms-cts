@@ -1,3 +1,4 @@
 *.conf
-project/*.sql
-ifms-cts
+project/*
+ifms-cts/*
+dotnet/*
