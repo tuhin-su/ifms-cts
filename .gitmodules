@@ -1,6 +1,6 @@
 [submodule "ifms-cts"]
 	path = ifms-cts
 	url = https://github.com/abusalam/IFMS-CTS.git
-[submodule "dotnet"]
+[submodule "project/ctsapi"]
 	path = project/ctsapi
 	url = https://github.com/abusalam/ctsapi.git
