@@ -1,0 +1,3 @@
+*.conf
+project/*.sql
+ifms-cts
