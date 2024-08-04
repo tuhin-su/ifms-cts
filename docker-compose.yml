@@ -72,5 +72,5 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - ./postgres-init:/docker-entrypoint-initdb.d  # Place init file(s) here.
+      - ./ifms-cts/postgres-init:/docker-entrypoint-initdb.d  # Place init file(s) here.
       # - ./postgres-data:/var/lib/postgresql/data # Uncomment this line to use a bind mount for data persistence
