@@ -12,6 +12,5 @@ RUN dotnet dev-certs https \
     && dotnet tool update --global dotnet-ef --version 7.0.20 \
     && dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.3.7
 
-ENV PATH="${PATH}:/home/vscode/.dotnet/tools"
     
 CMD ["sleep", "infinity"]

@@ -1,44 +1,3 @@
-# networks:
-#   default:
-#     name: "nic"
-#     external: false
-# dotnet:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile.dotnet
-#     restart: unless-stopped
-#     container_name: "cts_dotnet"
-#     command: dotnet watch --project . run --urls "http://0.0.0.0:8081"
-#     environment:
-#       - ASPNETCORE_ENVIRONMENT=Development
-#       - ASPNETCORE_URLS=http://+:8081
-#     volumes:
-#       - ./project:/app
-#     expose:
-#       - '8081'
-
-# postgres:
-#     image: postgres 
-#     restart: unless-stopped
-#     container_name: "cts_postgres"
-#     stop_grace_period: 30s
-#     shm_size: 1g
-#     command: -c 'max_connections=1000'
-#     environment:
-#       POSTGRES_MULTIPLE_DATABASES: 'test_cts'
-#       POSTGRES_PASSWORD: 'pgsql'
-#       POSTGRES_DB: 'new_cts'
-#       POSTGRES_USER: 'postgres'
-#       POSTGRES_HOST_AUTH_METHOD: trust
-#       POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
-#     ports:
-#       - '5432:5432'
-#     volumes:
-#       - ./postgres-init:/docker-entrypoint-initdb.d # Place init file(s) here.
-#       # - ./postgres-data:/var/lib/postgresql/data # Use bind mount
-  
-version: '3.8'  # Specify the version of Docker Compose file format
-
 services:
   dotnet:
     build:
@@ -49,11 +8,14 @@ services:
     command: dotnet watch --project . run --urls "http://0.0.0.0:80"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:8081
+      - ASPNETCORE_URLS=http://+:80
     volumes:
       - ./project:/app
+      - ./dotnet:/home/vscode/.dotnet/
     expose:
-      - '8081'
+      - '80'
+    ports:
+      - '80:80'
 
   postgres:
     image: postgres
