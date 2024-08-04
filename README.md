@@ -9,7 +9,7 @@ dotnet(api) and postgresql server only
     cd ifms-cts
 ```
 ### install docker or docker-compose
-[Offical guid by docker](https://docs.docker.com/engine/install/)
+[Official guide by docker](https://docs.docker.com/engine/install/)
 
 ### Build dependency
 ```bash
